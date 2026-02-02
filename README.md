@@ -152,9 +152,6 @@ The final model achieves high accuracy in distinguishing between spam and legiti
 - **Model Persistence**: Pickle for saving trained model and vectorizer
 - **Web Framework**: Streamlit for interactive UI
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📝 License
 
@@ -166,13 +163,3 @@ This project is open source and available under the MIT License.
 
 - GitHub: [@Kushagra3355](https://github.com/Kushagra3355)
 
-## 🙏 Acknowledgments
-
-- SMS Spam Collection Dataset
-- NLTK library for natural language processing
-- Scikit-learn for machine learning algorithms
-- Streamlit for the web interface
-
----
-
-⭐ Star this repository if you find it helpful!
