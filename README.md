@@ -144,7 +144,7 @@ email_spam_classifier/
 │   └── model.pkl
 │   └── vectorizer.pkl
 └── notebooks/
-   └── model.ipynb           # Jupyter notebook with analysis
+    └── model.ipynb           # Jupyter notebook with analysis
 ```
 
 ## Model Performance
