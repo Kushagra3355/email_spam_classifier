@@ -2,6 +2,8 @@
 
 A machine learning-based spam detection system that classifies emails and SMS messages as spam or legitimate (ham) using Natural Language Processing and various classification algorithms.
 
+Live DEMO: https://spam--classification.streamlit.app/
+
 ## 🎯 Project Overview
 
 This project implements a complete spam classification pipeline including:
