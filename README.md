@@ -1,10 +1,10 @@
-# 📧 Email/SMS Spam Classifier
+# Email/SMS Spam Classifier
 
 A machine learning-based spam detection system that classifies emails and SMS messages as spam or legitimate (ham) using Natural Language Processing and various classification algorithms.
 
 Live DEMO: https://spam--classification.streamlit.app/
 
-## 🎯 Project Overview
+## Project Overview
 
 This project implements a complete spam classification pipeline including:
 
@@ -41,7 +41,7 @@ This project implements a complete spam classification pipeline including:
   - User-friendly Streamlit interface
   - Instant classification results
 
-## 📋 Requirements
+## Requirements
 
 ```
 numpy
@@ -55,7 +55,7 @@ seaborn
 wordcloud
 ```
 
-## 🛠️ Installation
+## Installation
 
 1. Clone the repository:
 
@@ -78,14 +78,14 @@ nltk.download('punkt')
 nltk.download('stopwords')
 ```
 
-## 📊 Dataset
+## Dataset
 
-The project uses the [SMS Spam Collection Dataset](spam.csv) which contains:
+The project uses the SMS dataset located in the `data/` folder which contains:
 
 - SMS messages labeled as 'spam' or 'ham'
 - Preprocessed and cleaned for training
 
-## 🔬 Model Training
+## Model Training
 
 The complete model training process is available in [model.ipynb](model.ipynb):
 
@@ -114,7 +114,7 @@ The complete model training process is available in [model.ipynb](model.ipynb):
    - Accuracy and precision metrics
    - Model comparison and selection
 
-## 🎮 Usage
+## Usage
 
 ### Running the Web Application
 
@@ -130,38 +130,40 @@ Then open your browser and navigate to `http://localhost:8501`
 2. Click the "Predict" button
 3. Get instant classification: **Spam** or **Not Spam**
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 email_spam_classifier/
 │
-├── app.py                 # Streamlit web application
-├── model.ipynb           # Jupyter notebook with complete analysis
-├── spam.csv              # Dataset
-├── model.pkl             # Trained model (pickle file)
-├── vectorizer.pkl        # TF-IDF vectorizer (pickle file)
-└── README.md             # Project documentation
+├── app.py                    # Streamlit web application
+├── README.md                 # Project documentation
+├── requirements.txt          # Python dependencies
+├── data/
+│   └── spam.csv              # Dataset
+├── models/                   # Saved/trained models
+│   └── model.pkl
+│   └── vectorizer.pkl
+└── notebooks/
+   └── model.ipynb           # Jupyter notebook with analysis
 ```
 
-## 🧪 Model Performance
+## Model Performance
 
 The final model achieves high accuracy in distinguishing between spam and legitimate messages. Detailed performance metrics including accuracy, precision, recall, and F1-score are available in the notebook.
 
-## 🔧 Technical Details
+## Technical Details
 
 - **Text Vectorization**: TF-IDF (Term Frequency-Inverse Document Frequency)
 - **Preprocessing**: NLTK for tokenization and stemming
 - **Model Persistence**: Pickle for saving trained model and vectorizer
 - **Web Framework**: Streamlit for interactive UI
 
-
-## 📝 License
+## License
 
 This project is open source and available under the MIT License.
 
-## 👤 Author
+## Author
 
 **Kushagra3355**
 
 - GitHub: [@Kushagra3355](https://github.com/Kushagra3355)
-
