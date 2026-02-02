@@ -4,11 +4,11 @@ import string
 from nltk.corpus import stopwords
 import nltk
 from nltk.stem.porter import PorterStemmer
+from pathlib import Path
 
 # Download required NLTK data
 nltk.download("punkt")
 nltk.download("stopwords")
-nltk.download("punkt_tab")
 
 ps = PorterStemmer()
 
@@ -38,8 +38,22 @@ def transform_text(text):
     return " ".join(y)
 
 
-tfidf = pickle.load(open("models/vectorizer.pkl", "rb"))
-model = pickle.load(open("models/model.pkl", "rb"))
+base_dir = Path(__file__).resolve().parent
+models_dir = base_dir / "models"
+
+tfidf = None
+model = None
+try:
+    tfidf_path = models_dir / "vectorizer.pkl"
+    model_path = models_dir / "model.pkl"
+    with open(tfidf_path, "rb") as f:
+        tfidf = pickle.load(f)
+    with open(model_path, "rb") as f:
+        model = pickle.load(f)
+except FileNotFoundError as e:
+    st.error(f"Model file not found: {e}")
+except Exception as e:
+    st.error(f"Error loading model files: {e}")
 
 st.title("Email/SMS Spam Classifier")
 
@@ -47,14 +61,19 @@ input_sms = st.text_area("Enter the message")
 
 if st.button("Predict"):
 
-    # 1. preprocess
-    transformed_sms = transform_text(input_sms)
-    # 2. vectorize
-    vector_input = tfidf.transform([transformed_sms])
-    # 3. predict
-    result = model.predict(vector_input)[0]
-    # 4. Display
-    if result == 1:
-        st.header("Spam")
+    if tfidf is None or model is None:
+        st.error(
+            "Models are not loaded. Check the models/ directory and restart the app."
+        )
     else:
-        st.header("Not Spam")
+        # 1. preprocess
+        transformed_sms = transform_text(input_sms)
+        # 2. vectorize
+        vector_input = tfidf.transform([transformed_sms])
+        # 3. predict
+        result = model.predict(vector_input)[0]
+        # 4. Display
+        if result == 1:
+            st.header("Spam")
+        else:
+            st.header("Not Spam")
